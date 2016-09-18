@@ -15,7 +15,9 @@
 		
 		
         <div id ='corps'>	
-			<?php			
+			<?php
+				
+			//number of files
 			$nb_fichier = 0;
 			echo '<ul>'; 
 
@@ -28,6 +30,7 @@
 					{
 						$nb_fichier++;                            	
 						$id = '"'.'video'.$nb_fichier.''.'"';
+						
 						echo "							
 						<div class='accueilZone'>               				
 							<h2>$fichier</h2>
