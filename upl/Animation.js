@@ -1,18 +1,21 @@
 /* 
- * @param {string} element - la balise que l'on veut creer
- * @param {string} contenu - ce que va contenir la balise
- * @param {string} divMere - la division qui va contenir la nouvelle balise
- * @param {number} idd - nom de l'id a donnee
+ * @param {string} element - the tag that is to be created
+ * @param {string} contenu - the futur content of the tag
+ * @param {string} divMere - the id of the tag who will contains the new tag
+ * @param {number} idd - the id to the new tag
  */
-//Fonction qui permet de creer la balise que l'on veut (<p>,<span>,etc, avec attribution d'un id)
+//Function to create the tag you want (<p> <span>, etc. with assigning an id)
 function genereContenuID(element,contenu,divMere,idd)
 {
-    nouveauDiv = document.createElement(element);                //creation de l'element
-    nouveauDiv.innerHTML = contenu;				 //Attribution d'un contenu
-    nouveauDiv.id=idd;                                           //Attribution d'un id
-    document.getElementById(divMere).appendChild(nouveauDiv);    //pour insérer dans une div qu'on aura donnee au prealable
+    nouveauDiv = document.createElement(element);                //Creation of the element
+    nouveauDiv.innerHTML = contenu;				 				 //Assigning content
+    nouveauDiv.id=idd;                                           //Assigning an id
+    document.getElementById(divMere).appendChild(nouveauDiv);    
 }
-
+/**
+*  This function assign a color to the panel notification
+*  @param {string} etat - Message of the notification
+*/
 function notifEtatUpload(etat)
 {
     genereContenuID("div",etat,"notif","EtatUpload");        
@@ -27,18 +30,15 @@ function notifEtatUpload(etat)
 			css("padding-top","26px").			
             css("margin-right","auto").
             css("margin-bottom","-86px").
-			css("margin-top","0px");         
-    /*$(function() { 	
-		var windowWidth= $(window).width();
-		if(windowWidth < 590){
-			$("#EtatUpload").css("margin-top","-20px").css("margin-left","0").css("margin-right","0");  
-		}	   
-	});*/
-	
-    if(etat==="Succes de l\'upload")
-        $("#EtatUpload").css("background-color","#0FB7AC");//Fond vert
-    else
-        $("#EtatUpload").css("background-color","#CC2424");//Fond rouge
+			css("margin-top","0px");             
+			
+    //Notification to indicate the succes of the upload
+	if(etat==="Succes de l\'upload")
+        $("#EtatUpload").css("background-color","#0FB7AC");//background green
+    
+	//Other case : if the upload doesn't success
+	else
+        $("#EtatUpload").css("background-color","#CC2424");//background red
     
     $("#EtatUpload").hide().fadeIn(2000);                                        
 }

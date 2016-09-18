@@ -11,7 +11,7 @@
 		require("uploadFichier.php");
 	?>
     <body>
-		<!-- ________Le formulaire et quelques indications________ -->
+		<!-- ________The form and some indication________ -->
         <div id ='corps'>
             <h1 style="background-color:#DFDFDF; border-radius :10px;">Uploader son fichier</h1>
             <form action="uploadFichier.php" method="POST" enctype="multipart/form-data">
@@ -31,7 +31,7 @@
 			<br/><hr/><br/>			
         </div>      
 		<br/><br/>	
-		<!-- ________Notification de l'etat de l'upload - Pour savoir si l'upload s'est bien passe________ -->
+		<!-- ________Notification of the status of the upload - To know if the upload went well________ -->
 		<div id="notif">	
             <?php
             
@@ -61,7 +61,7 @@
             ?>
         </div>
         
-		<!-- ________Zone montrant le contenu du dossier qui contient les fichier qui ont ete uploade________ -->
+		<!-- ________Area showing the contents of the folder that contains the file that were uploaded________ -->
         <div id="listeFichier">
             <h2>Contenu du dossier</h2>
             <?php				
@@ -81,7 +81,7 @@
             ?>
         </div>            
 
-		<!--________Petit pied de page________-->
+		<!--________Small footer________-->
         <footer style="text-align: center;">
             <h3>Outil pour uploader des fichiers</h3>
         </footer>

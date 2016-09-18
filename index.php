@@ -17,28 +17,31 @@
         <div id ='corps'>	
 			<?php			
 			$nb_fichier = 0;
-                echo '<ul>';                
-                if($dossier = opendir('./videos'))
-                {
-                    while(false !== ($fichier = readdir($dossier)))
-                    {
-                        if($fichier != '.' && $fichier != '..' && $fichier != 'index.php')
-                        {
-                            $nb_fichier++;                            	
-							$id = '"'.'video'.$nb_fichier.''.'"';
-							echo "							
-							<div class='accueilZone'>               				
-								<h2>$fichier</h2>
-								<button type=button onclick='displayOn($id);'>Afficher/cacher Video</button>
-								</br></br>
-								<video id='video$nb_fichier' controls width='720' height='405'>					
-									<source src='videos/$fichier' type='video/mp4' type='video/mp4'>
-								</video>								
-							</div>							
-							";
-                        }
-                    }
-                }       			
+			echo '<ul>'; 
+
+			//---------Content directory---------
+			if($dossier = opendir('./videos'))
+			{
+				while(false !== ($fichier = readdir($dossier)))
+				{
+					if($fichier != '.' && $fichier != '..' && $fichier != 'index.php')
+					{
+						$nb_fichier++;                            	
+						$id = '"'.'video'.$nb_fichier.''.'"';
+						echo "							
+						<div class='accueilZone'>               				
+							<h2>$fichier</h2>
+							<button type=button onclick='displayOn($id);'>Afficher/cacher Video</button>
+							</br></br>
+							<video id='video$nb_fichier' controls width='720' height='405'>					
+								<source src='videos/$fichier' type='video/mp4' type='video/mp4'>
+							</video>								
+						</div>							
+						";
+					}
+				}
+			}
+			//----------------------------------
 			?>
 			
 			<script>
