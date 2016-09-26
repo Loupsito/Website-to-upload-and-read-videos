@@ -24,8 +24,10 @@
 
 			<div class="row">
 			<?php
+
 			//number of files
 			$nb_fichier = 0;
+
 			//---------Content directory---------
 			if($dossier = opendir('./videos'))
 			{
@@ -35,17 +37,18 @@
 					{
 						$nb_fichier++;
 						$id = '"'.'video'.$nb_fichier.''.'"';
+
 						echo "
 						<div class='col-md-6 gutter'>
 							<div class='thumbnail'>
 								<h2>$fichier</h2>
 								<button class='btn btn-primary' onclick='displayOn($id);'>Afficher/cacher Video</button>
 								</br></br>
-							<div align='center' class='embed-responsive embed-responsive-16by9' id='video$nb_fichier' style='display:none;'>
-								<video controls class='embed-responsive-item'>
-									<source src='videos/$fichier' type='video/mp4' type='video/mp4'>
-								</video>
-							</div>
+								<div align='center' class='embed-responsive embed-responsive-16by9' id='video$nb_fichier' style='display:none;'>
+									<video controls class='embed-responsive-item'>
+										<source src='videos/$fichier' type='video/mp4' type='video/mp4'>
+									</video>
+								</div>
 							</div>
 						</div>
 						";
