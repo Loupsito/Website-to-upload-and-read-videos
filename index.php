@@ -1,25 +1,31 @@
 <!DOCTYPE html> 
 <html>
-    <head>
-        <meta charset="UTF-8">
-        <link rel="stylesheet" href="myCSS.css" type="text/css">   
-        <title>My video Personnal</title>         
-    </head>	
-    <body id="Main">		        
-        <div id="titrePage" data-myValue="Accueil"></div>     
-		
-		<div id="enTeteCorps">	
+	<head>
+		<meta charset="UTF-8">
+		<link rel="stylesheet" href="style.css">
+		<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+		<title>My video Personnal</title>
+	</head>
+	<body>
+
+		<nav class="navbar navbar-default">
+			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+				<ul class="nav navbar-nav">
+					<li class="active"><a href="#">Home</a></li>
+					<li><a href="upl/">Upload videos</a></li>
+				</ul>
+			</div>
+		</nav>
+
+		<div class="container-fluid">
+
 			<h1>My videos Personnal</h1>
-			<a style="top:-15px; position: relative;" href="upl/" target="_blanck">Upload videos</a>		
-		</div>
-		
-		
-        <div id ='corps'>	
+
+			<div class="row">
 			<?php
-				
+
 			//number of files
 			$nb_fichier = 0;
-			echo '<ul>'; 
 
 			//---------Content directory---------
 			if($dossier = opendir('./videos'))
@@ -28,39 +34,44 @@
 				{
 					if($fichier != '.' && $fichier != '..' && $fichier != 'index.php')
 					{
-						$nb_fichier++;                            	
+						$nb_fichier++;
 						$id = '"'.'video'.$nb_fichier.''.'"';
-						
-						echo "							
-						<div class='accueilZone'>               				
-							<h2>$fichier</h2>
-							<button type=button onclick='displayOn($id);'>Afficher/cacher Video</button>
-							</br></br>
-							<video id='video$nb_fichier' controls width='720' height='405'>					
-								<source src='videos/$fichier' type='video/mp4' type='video/mp4'>
-							</video>								
-						</div>							
+
+						echo "
+						<div class='col-md-6 gutter'>
+							<div class='thumbnail'>
+								<h2>$fichier</h2>
+								<button class='btn btn-primary' onclick='displayOn($id);'>Afficher/cacher Video</button>
+								</br></br>
+								<div align='center' class='embed-responsive embed-responsive-16by9' id='video$nb_fichier' style='display:none;'>
+									<video controls class='embed-responsive-item'>
+										<source src='videos/$fichier' type='video/mp4' type='video/mp4'>
+									</video>
+								</div>
+							</div>
+						</div>
 						";
 					}
 				}
 			}
 			//----------------------------------
 			?>
-			
+			</div>
+
 			<script>
 				function displayOn(id)
-				{					
-					var myDiv = document.getElementById(id);									
-					if(myDiv.style.display==="none" || myDiv.style.display==="")          
+				{
+					var myDiv = document.getElementById(id);
+					if(myDiv.style.display==="none" || myDiv.style.display==="")
 					{
-						myDiv.style.display = "block";                						
+						myDiv.style.display = "block";
 					}
-				   else
-				   {
-						myDiv.style.display = "none";						
-				   }
+					else
+					{
+						myDiv.style.display = "none";
+					}
 				}
 			</script>
-        </div>             
-    </body>
+		</div>
+	</body>
 </html>
