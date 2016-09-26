@@ -1,4 +1,11 @@
+@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css");
+
+.top-buffer {
+  margin-top: 5px;
+}
+
 /* navbar style */
+
 .navbar-default {
   background-color: #337ab7;
   border-color: #46b8da;
@@ -52,6 +59,7 @@
 .navbar-default .navbar-link:hover {
   color: #ffffff;
 }
+
 @media (max-width: 767px) {
   .navbar-default .navbar-nav .open .dropdown-menu > li > a {
     color: #e3e3e3;

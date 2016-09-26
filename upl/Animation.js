@@ -7,10 +7,10 @@
 //Function to create the tag you want (<p> <span>, etc. with assigning an id)
 function genereContenuID(element,contenu,divMere,idd)
 {
-    nouveauDiv = document.createElement(element);                //Creation of the element
-    nouveauDiv.innerHTML = contenu;				 				 //Assigning content
-    nouveauDiv.id=idd;                                           //Assigning an id
-    document.getElementById(divMere).appendChild(nouveauDiv);    
+    nouveauDiv = document.createElement(element);               //Creation of the element
+    nouveauDiv.innerHTML = contenu;                              //Assigning content
+    nouveauDiv.id=idd;                                         //Assigning an id
+    document.getElementById(divMere).appendChild(nouveauDiv);
 }
 /**
 *  This function assign a color to the panel notification
@@ -18,27 +18,15 @@ function genereContenuID(element,contenu,divMere,idd)
 */
 function notifEtatUpload(etat)
 {
-    genereContenuID("div",etat,"notif","EtatUpload");        
-    $("#EtatUpload").
-            css("position","relative").            
-            css("width","300px").
-            css("height","60px").
-            css("text-align","center").            
-			css("vertical-align","middle").            
-            css("border-radius","2px").
-            css("margin-left","auto").
-			css("padding-top","26px").			
-            css("margin-right","auto").
-            css("margin-bottom","-86px").
-			css("margin-top","0px");             
-			
+    genereContenuID("div",etat,"notif","EtatUpload");
+
     //Notification to indicate the succes of the upload
-	if(etat==="Succes de l\'upload")
-        $("#EtatUpload").css("background-color","#0FB7AC");//background green
-    
-	//Other case : if the upload doesn't success
-	else
-        $("#EtatUpload").css("background-color","#CC2424");//background red
-    
-    $("#EtatUpload").hide().fadeIn(2000);                                        
+    if(etat==="Succes de l\'upload")
+        $("#EtatUpload").attr("class","bg-success");//background green
+
+    //Other case : if the upload doesn't success
+    else
+        $("#EtatUpload").attr("class","bg-danger");//background red
+
+    $("#EtatUpload").hide().fadeIn(2000);
 }
