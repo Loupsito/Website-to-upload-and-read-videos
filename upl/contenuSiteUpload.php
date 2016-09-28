@@ -6,20 +6,23 @@
 			<div class="row">
 				<div class="col-md-6">
 					<h1>Uploader son fichier</h1>
-					<form action="uploadFichier.php" method="POST" enctype="multipart/form-data">
+					<form id="fromToUpload" action="" enctype="multipart/form-data" method="post">
 						<div class="row">
 							<div class="col-md-12">
 								<label class="btn btn-primary" for="my-file-selector">
-									<input name = 'fichier' id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
+									<input required name = 'fichier' id="my-file-selector" type="file" style="display:none;" onchange="$('#upload-file-info').html($(this).val());">
 									Browse
 								</label>
 								<span class='label label-info' id="upload-file-info"></span>
 							</div>
 							<div class="col-md-12 top-buffer">
-								<button class="btn btn-default" type='submit'>Valider</button>
+								<button id="fileToSend" class="btn btn-default" type='submit'>Valider</button>
 							</div>
 						</div>
 					</form>
+										
+					<progress id="progress" width="100px" value="0" max="100"></progress>
+					
 					<?php
 						echo " Taille maximum autorisé : ".$tailleMAX/1000000 ." mo<br/>";
 						echo "Format de fichier autorisé : ";
@@ -104,4 +107,5 @@
 				
 
 			</div>
+			<script src="functionJS.js"></script>
 		</div>
