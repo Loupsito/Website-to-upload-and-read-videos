@@ -29,8 +29,8 @@ if(isset($_FILES['fichier']))
 	 $extension = strrchr($_FILES['fichier']['name'], '.');// recover part of the chain from the last "." to know the extension. 	 
 	 $taille = filesize($_FILES['fichier']['tmp_name']);  //recover the file size
 	 	 	
-	 //-----------------MANAGEMENT EXTENSIONS-----------------
-	 if(!in_array($extension, $extensions)) 
+	 //-----------------MANAGEMENT EXTENSIONS-----------------	 	 	
+	 if((!in_array($extension, $extensions)) or (mime_content_type($_FILES['fichier']['tmp_name'])!='video/mp4')) 
 	 {
 		$erreur = 'extension';		
 	 }	 	 	 	 
@@ -38,7 +38,7 @@ if(isset($_FILES['fichier']))
 	 if ($taille>$tailleMAX)
 	 {
 		$erreur = 'taille';
-		header('Location:siteUpload.php?etat=taille');
+		header('Location:index.php?etat=taille');
 		echo "taille";
 	 }	 	
 	 //-------CHECKING IF FILE WAS SELECTED-------
@@ -71,16 +71,16 @@ if(isset($_FILES['fichier']))
 		 //-----------------UPLOAD FILE-----------------
 		 if(move_uploaded_file($_FILES['fichier']['tmp_name'],$dossier.$nb_fichier.") ".$fichier))      
 		 {
-			  header('Location:siteUpload.php?etat=succes');
+			  header('Location:index.php?etat=succes');
 		 }		 		 		 
 		 else
 		 {
-			  header('Location:siteUpload.php?etat=echec');
+			  header('Location:index.php?etat=echec');
 		 }    
 	}	 
 	else
 	{
-		header('Location:siteUpload.php?etat='.$erreur.'');				
+		header('Location:index.php?etat='.$erreur.'');				
 	}
 }
 ?>

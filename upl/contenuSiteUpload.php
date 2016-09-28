@@ -1,31 +1,9 @@
-<!DOCTYPE html> 
-<html>
-	<head>
-		<meta charset="UTF-8">
-		<link rel="stylesheet" href="../style.css">
-		<script src="jquery-2.2.0.js"></script>
-		<script src="Animation.js"></script>
-		<title>Uploader son fichier</title>
-	</head>
-	<?php
-		require("uploadFichier.php");
-	?>
-	<body>
-
-		<nav class="navbar navbar-default">
-			<div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-				<ul class="nav navbar-nav">
-					<li><a href="../">Home</a></li>
-					<li class="active"><a href="./">Upload videos</a></li>
-				</ul>
-			</div>
-		</nav>
-
-		<!-- ________The form and some indication________ -->
+<?php
+	require("uploadFichier.php");
+?>
+<!-- ________The form and some indication________ -->
 		<div class="container-fluid">
-
 			<div class="row">
-
 				<div class="col-md-6">
 					<h1>Uploader son fichier</h1>
 					<form action="uploadFichier.php" method="POST" enctype="multipart/form-data">
@@ -101,10 +79,29 @@
 								}
 							}
 						}
-					?>
+						echo '</ul>';
+					?>									
 				</div>
+				<div class="container">
+						<div class="row">						
+							<div class="col-md-offset-6 col-md-10">
+								<?php
+									if(!isset($_SESSION['login']))
+									{		
+										header('Location:index.php');
+									}
+									else
+									{
+										echo "<form action='commandes.php' method='GET'>
+												<input class='btn btn-default' type='submit' value='Déconnexion' />
+												<input type='hidden' name='action' value='deco' >
+											  </form>";
+									}
+								?>
+							</div>
+						</div>
+				</div>
+				
 
 			</div>
 		</div>
-	</body>
-</html>

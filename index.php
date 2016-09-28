@@ -18,7 +18,6 @@
 		</nav>
 
 		<div class="container-fluid">
-
 			<h1>My videos Personnal</h1>
 
 			<div class="row">
@@ -54,9 +53,10 @@
 					}
 				}
 			}
-			//----------------------------------
+			//----------------------------------			
+			
 			?>
-			</div>
+			</div>			
 
 			<script>
 				function displayOn(id)
