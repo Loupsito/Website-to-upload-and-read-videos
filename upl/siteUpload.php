@@ -1,6 +1,3 @@
-<?php
-session_start();
-?>
 <!DOCTYPE html> 
 <html>
 	<head>
@@ -26,7 +23,9 @@ session_start();
 
 		<!-- ________The form and some indication________ -->
 		<div class="container-fluid">
+
 			<div class="row">
+
 				<div class="col-md-6">
 					<h1>Uploader son fichier</h1>
 					<form action="uploadFichier.php" method="POST" enctype="multipart/form-data">
@@ -102,29 +101,8 @@ session_start();
 								}
 							}
 						}
-						echo '</ul>';
-					?>									
+					?>
 				</div>
-				<div class="container">
-						<div class="row">						
-							<div class="col-md-offset-6 col-md-10">
-								<?php
-									if(!isset($_SESSION['login']))
-									{		
-										header('Location:index.php');
-									}
-									else
-									{
-										echo "<form action='commandes.php' method='GET'>
-												<input class='btn btn-default' type='submit' value='Déconnexion' />
-												<input type='hidden' name='action' value='deco' >
-											  </form>";
-									}
-								?>
-							</div>
-						</div>
-				</div>
-				
 
 			</div>
 		</div>

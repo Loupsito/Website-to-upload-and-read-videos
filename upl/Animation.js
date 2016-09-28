@@ -30,11 +30,3 @@ function notifEtatUpload(etat)
 
     $("#EtatUpload").hide().fadeIn(2000);
 }
-
-function notifConnexion(msg)
-{	
-	$("#notifCo").append("<div class='alert alert-danger' id='myAlert'>"
-							+"<a href='#' class='close'>&times;</a>"
-								+msg
-						+"</div>");
-}

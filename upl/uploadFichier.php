@@ -29,8 +29,8 @@ if(isset($_FILES['fichier']))
 	 $extension = strrchr($_FILES['fichier']['name'], '.');// recover part of the chain from the last "." to know the extension. 	 
 	 $taille = filesize($_FILES['fichier']['tmp_name']);  //recover the file size
 	 	 	
-	 //-----------------MANAGEMENT EXTENSIONS-----------------	 	 	
-	 if((!in_array($extension, $extensions)) or (mime_content_type($_FILES['fichier']['tmp_name'])!='video/mp4')) 
+	 //-----------------MANAGEMENT EXTENSIONS-----------------
+	 if(!in_array($extension, $extensions)) 
 	 {
 		$erreur = 'extension';		
 	 }	 	 	 	 
