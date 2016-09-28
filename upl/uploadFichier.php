@@ -69,7 +69,7 @@ if(isset($_FILES['fichier']))
 		echo ">>".$dossier.$nb_fichier.") ".$fichier;
 		 
 		 //-----------------UPLOAD FILE-----------------
-		 if(move_uploaded_file($_FILES['fichier']['tmp_name'],$dossier.$nb_fichier.") ".$fichier))      
+		 if(move_uploaded_file($_FILES['fichier']['tmp_name'],$dossier.$nb_fichier.") ".htmlentities($fichier)))      
 		 {
 			  header('Location:index.php?etat=succes');
 		 }		 		 		 
